@@ -21,10 +21,21 @@ $ npm install neuron-package-root --save
 
 ## Usage
 
+If the directory structure is:
+
+```
+/path/to
+       |-- neuron.config.js
+       |-- a
+           |-- b
+               |-- a.js
+```
+
 ```js
 var package_root = require('neuron-package-root');
-package_root(dir, function(root){
+package_root('/path/to/a/b', function(root){
   console.log(root);
+  // -> /path/to
 });
 ```
 
@@ -34,6 +45,7 @@ package_root(dir, function(root){
 - options `Object`
   - identity_filename: `string=neuron.config.js`
 - callback `function(root)` the found `root` will be passed as the only parameter. If package root not found, then `root` will be `undefined`.
+
 
 ## License
 

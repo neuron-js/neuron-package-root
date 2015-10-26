@@ -1,6 +1,6 @@
 {
   "name": "neuron-package-root",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "neuron-package-root",
   "main": "index.js",
   "scripts": {
