@@ -1,7 +1,7 @@
 {
   "name": "neuron-package-root",
-  "version": "1.0.1",
-  "description": "neuron-package-root",
+  "version": "1.0.2",
+  "description": "Get the root directory of the current neuron packages from an entry file.",
   "main": "index.js",
   "scripts": {
     "test": "mocha --reporter spec ./test/*.js"
