@@ -11,7 +11,7 @@
 
 # neuron-package-root
 
-<!-- description -->
+Get the root directory of the current neuron packages from an entry file.
 
 ## Install
 
@@ -22,8 +22,18 @@ $ npm install neuron-package-root --save
 ## Usage
 
 ```js
-var neuron_package_root = require('neuron-package-root');
+var package_root = require('neuron-package-root');
+package_root(dir, function(root){
+  console.log(root);
+});
 ```
+
+### package_root(dir [, options], callback)
+
+- dir `path` the absolute path of the entry file
+- options `Object`
+  - identity_filename: `string=neuron.config.js`
+- callback `function(root)` the found `root` will be passed as the only parameter. If package root not found, then `root` will be `undefined`.
 
 ## License
 
