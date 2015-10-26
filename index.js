@@ -1,17 +1,21 @@
 'use strict';
 
+module.exports = package_root;
+
 var node_path = require('path');
+var fs = require('fs');
 
 // Get the root path of the project
-function _package_root(dir, options, callback) {
+function package_root(dir, options, callback) {
   if (arguments.length === 2) {
     callback = options;
     options = {};
   }
 
   options.identity_filename = options.identity_filename || 'neuron.config.js';
-  package_root(dir, options, callback);
+  _package_root(dir, options, callback);
 }
+
 
 var SYS_ROOT = node_path
   // in windows, sys_root will be 'c:\\'
@@ -19,7 +23,7 @@ var SYS_ROOT = node_path
   // It is weird that sometime the disk name of windows is lowercase, sometime uppercase
   .toLowerCase();
 
-function package_root (dir, options, callback) {
+function _package_root (dir, options, callback) {
   if (!dir || dir.toLowerCase() === SYS_ROOT) {
     return callback();
   }
@@ -29,6 +33,6 @@ function package_root (dir, options, callback) {
       return callback(dir);
     }
 
-    package_root(node_path.dirname(dir), options, callback);
+    _package_root(node_path.dirname(dir), options, callback);
   });
 };
