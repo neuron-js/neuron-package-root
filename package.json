@@ -1,6 +1,6 @@
 {
   "name": "neuron-package-root",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Get the root directory of the current neuron packages from an entry file.",
   "main": "index.js",
   "scripts": {

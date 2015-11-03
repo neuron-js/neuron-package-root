@@ -28,9 +28,21 @@ function _package_root (dir, options, callback) {
     return callback();
   }
 
-  fs.exists(node_path.join(dir, options.identity_filename), function (exists) {
+  var file = node_path.join(dir, options.identity_filename);
+  fs.exists(file, function (exists) {
     if (exists) {
-      return callback(dir);
+      return fs.stat(file, function (err, stat) {
+        if (err) {
+          // undefined
+          return callback();
+        }
+
+        if (stat.isFile()) {
+          return callback(dir);
+        }
+
+        _package_root(node_path.dirname(dir), options, callback);
+      });
     }
 
     _package_root(node_path.dirname(dir), options, callback);
