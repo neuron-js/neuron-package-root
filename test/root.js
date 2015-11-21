@@ -1,7 +1,7 @@
 'use strict';
 
 var expect = require('chai').expect;
-var package_root = require('../');
+var package_root = require('../lib/root');
 var node_path = require('path');
 
 var root = node_path.join(__dirname, 'fixtures');
