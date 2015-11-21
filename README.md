@@ -1,22 +1,22 @@
-[![Build Status](https://travis-ci.org/neuron-js/neuron-package-root.svg?branch=master)](https://travis-ci.org/neuron-js/neuron-package-root)
+[![Build Status](https://travis-ci.org/neuron-js/neuron-project-config.svg?branch=master)](https://travis-ci.org/neuron-js/neuron-project-config)
 <!-- optional npm version
-[![NPM version](https://badge.fury.io/js/neuron-package-root.svg)](http://badge.fury.io/js/neuron-package-root)
+[![NPM version](https://badge.fury.io/js/neuron-project-config.svg)](http://badge.fury.io/js/neuron-project-config)
 -->
 <!-- optional npm downloads
-[![npm module downloads per month](http://img.shields.io/npm/dm/neuron-package-root.svg)](https://www.npmjs.org/package/neuron-package-root)
+[![npm module downloads per month](http://img.shields.io/npm/dm/neuron-project-config.svg)](https://www.npmjs.org/package/neuron-project-config)
 -->
 <!-- optional dependency status
-[![Dependency Status](https://david-dm.org/neuron-js/neuron-package-root.svg)](https://david-dm.org/neuron-js/neuron-package-root)
+[![Dependency Status](https://david-dm.org/neuron-js/neuron-project-config.svg)](https://david-dm.org/neuron-js/neuron-project-config)
 -->
 
-# neuron-package-root
+# neuron-project-config
 
-Get the root directory of the current neuron packages from an entry file.
+Get the configurations of neuron project from an entry directory.
 
 ## Install
 
 ```sh
-$ npm install neuron-package-root --save
+$ npm install neuron-project-config --save
 ```
 
 ## Usage
@@ -32,18 +32,20 @@ If the directory structure is:
 ```
 
 ```js
-var package_root = require('neuron-package-root');
-package_root('/path/to/a/b', function(root){
-  console.log(root);
-  // -> /path/to
+var config = require('neuron-project-config');
+config.read('/path/to/a/b', function(err, json){
+  console.log(json); // The santitized and resolved exports of neuron.config.js
 });
 ```
 
-### package_root(dir [, options], callback)
+### config.read(dir, callback)
+
+### config.root(dir, callback)
+
+### config.validate(dir, root, callback);
+
 
 - dir `path` the absolute path of the entry file
-- options `Object`
-  - identity_filename: `string=neuron.config.js`
 - callback `function(root)` the found `root` will be passed as the only parameter. If package root not found, then `root` will be `undefined`.
 
 
