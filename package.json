@@ -1,17 +1,20 @@
 {
-  "name": "neuron-package-root",
-  "version": "1.0.3",
-  "description": "Get the root directory of the current neuron packages from an entry file.",
+  "name": "neuron-project-config",
+  "version": "1.0.0",
+  "description": "Get the configurations of neuron project from an entry directory.",
   "main": "index.js",
   "scripts": {
     "test": "mocha --reporter spec ./test/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/neuron-js/neuron-package-root.git"
+    "url": "git://github.com/neuron-js/neuron-project-config.git"
   },
   "keywords": [
-    "neuron-package-root"
+    "neuron.config.js",
+    "configurations",
+    "neuron",
+    "project"
   ],
   "engines": {
     "node": ">=0.10.0"
@@ -19,7 +22,7 @@
   "author": "neuron-js",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/neuron-js/neuron-package-root/issues"
+    "url": "https://github.com/neuron-js/neuron-project-config/issues"
   },
   "devDependencies": {
     "mocha": "*",
