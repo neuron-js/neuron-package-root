@@ -18,7 +18,7 @@ function read (dir, callback) {
       return callback(new Error(message));
     }
 
-    var config_file = node_path.join(root, options.identity_filename);
+    var config_file = node_path.join(root, package_root.IDENTITY_FILENAME);
     var config = require(config_file);
 
     validate(config, root, callback);

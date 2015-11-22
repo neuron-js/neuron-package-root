@@ -1,13 +1,13 @@
 'use strict';
 
 var expect = require('chai').expect;
-var package_root = require('../lib/root');
+var config = require('../');
 var node_path = require('path');
 
 var root = node_path.join(__dirname, 'fixtures');
 var dir = root;
 
-describe("package_root()", function(){
+describe("config.root()", function(){
   [
     [__dirname],
     [dir, root],
@@ -16,8 +16,37 @@ describe("package_root()", function(){
     [dir = node_path.join(dir, 'c'), root]
   ].forEach(function (c) {
     it(c[0], function(done){
-      package_root(c[0], function (root) {
+      config.root(c[0], function (root) {
         expect(root).to.equal(c[1]);
+        done();
+      });
+    });
+  });
+});
+
+
+describe("config.read()", function(){
+  [
+    [__dirname],
+    [dir, root],
+    [dir = node_path.join(dir, 'a'), root],
+    [dir = node_path.join(dir, 'b'), root],
+    [dir = node_path.join(dir, 'c'), root]
+  ].forEach(function (c) {
+    it(c[0], function(done){
+      var _root = c[1];
+      config.read(c[0], function (err, settings) {
+        if (!_root) {
+          expect(err).not.to.equal(null);
+          return done();
+        }
+
+        expect(err).to.equal(null);
+        expect(settings).to.deep.equal({
+          src: root + '/a',
+          dist: root + '/b',
+          release: root + '/c',
+        });
         done();
       });
     });

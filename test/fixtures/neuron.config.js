@@ -1,1 +1,5 @@
-// actually nothing here
+module.exports = {
+  src: 'a',
+  dist: 'b',
+  release: 'c',
+};
