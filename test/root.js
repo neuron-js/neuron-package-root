@@ -46,6 +46,7 @@ describe("config.read()", function(){
           src: root + '/a',
           dist: root + '/b',
           release: root + '/c',
+          root: root
         });
         done();
       });
