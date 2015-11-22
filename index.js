@@ -21,6 +21,10 @@ function read (dir, callback) {
     var config_file = node_path.join(root, package_root.IDENTITY_FILENAME);
     var config = require(config_file);
 
+    // `config.root` is the root path of the project,
+    // i.e. the directory which contains neuron.config.js
+    config.root = root;
+
     validate(config, root, callback);
   });
 }
