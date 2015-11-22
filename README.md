@@ -13,7 +13,7 @@
 
 Get the configurations of neuron project from an entry directory. 
 
-**ALWAYS** use this module to loop up and `read neuron.config.js`
+**ALWAYS** use this module to loop up and read `neuron.config.js`, so that `path.resolve` and other problems will not be your concern.
 
 ## Install
 
