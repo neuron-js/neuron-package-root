@@ -1,6 +1,6 @@
 {
   "name": "neuron-project-config",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Get the configurations of neuron project from an entry directory.",
   "main": "index.js",
   "scripts": {
