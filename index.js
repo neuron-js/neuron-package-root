@@ -38,6 +38,7 @@ function read_file(file, callback) {
   // `config.root` is the root path of the project,
   // i.e. the directory which contains neuron.config.js
   config.root = root
+  config._file = file
 
   validate(config, root, callback)
 }
