@@ -42,7 +42,14 @@ describe("config.read()", function(){
         }
 
         expect(err).to.equal(null);
-        expect(settings).to.deep.equal({
+
+        var result = {}
+        result.src = settings.src
+        result.dist = settings.dist
+        result.release = settings.release
+        result.root = settings.root
+
+        expect(result).to.deep.equal({
           src: root + '/a',
           dist: root + '/b',
           release: root + '/c',
